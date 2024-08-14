@@ -1,7 +1,10 @@
-const { default: puppeteer } = require("puppeteer")
+const puppeteer = require("puppeteer")
 
 async function scrapeProduct(url){
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        // executablePath: 'node/modules/chromium-bidi/lib'
+         args: ["--no-sandbox", "--disabled-setupid-sandbox"],
+    });
     const page = await browser.newPage();
     await page.goto(url);
 
