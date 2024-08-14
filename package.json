@@ -1,0 +1,23 @@
+{
+  "name": "javascrape",
+  "version": "1.0.0",
+  "description": "A webscraper using Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prodigy3211/javascrape.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Prodigy3211/javascrape/issues"
+  },
+  "homepage": "https://github.com/Prodigy3211/javascrape#readme",
+  "dependencies": {
+    "puppeteer": "^23.0.2"
+  }
+}
