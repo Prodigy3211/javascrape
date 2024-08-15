@@ -2,7 +2,10 @@ const puppeteer = require("puppeteer");
 
 async function scrapeProduct(url){
     const browser = await puppeteer.launch({
-        headless:false
+        //Activate headless:false for troubleshooting
+        // headless:false
+
+        //Below for future iterations only
         // executablePath: 'node/modules/chromium-bidi/lib'
         //  args: ["--no-sandbox", "--disabled-setupid-sandbox"]
     });
