@@ -13,7 +13,7 @@ async function scrapeProduct(url){
     await page.goto(url, {waitUntil: 'networkidle0'});
     const [response] = await Promise.all([
     page.waitForNavigation({waitUntil: 'networkidle0'}),
-    page.click(String, puppeteer.MouseButton ='left'),
+    page.click('<h3 class="Typography_root__487rx #3a3247 Typography_body-lg__487rx event-card__clamp-line--two Typography_align-match-parent__487rx" style="--TypographyColor: #3a3247;">AFRO CARIBBEAN ROOFTOP PARTY</h3>', puppeteer.MouseButton ='left'),
     ]);
     await page.click('#panel0 > div > div > div > div > div.SegmentedCarousel-module__trackWrapper___3sLxM.segmented-carousel__track-wrapper > div > div.SegmentedCarousel-module__page___2NbSO.segmented-carousel__page.currentPage > div:nth-child(1) > div > section > div > section > div > a > h3');
     // await page.locator('.loading').wait();
