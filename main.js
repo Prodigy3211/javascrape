@@ -11,12 +11,6 @@ async function scrapeProduct(url){
     });
     const page = await browser.newPage();
     await page.goto(url, {waitUntil: 'networkidle0'});
-    // const [response] = await Promise.all([
-    // page.waitForNavigation({waitUntil: 'networkidle0'}),
-    // // page.click('<h3 class="Typography_root__487rx #3a3247 Typography_body-lg__487rx event-card__clamp-line--two Typography_align-match-parent__487rx" style="--TypographyColor: #3a3247;">AFRO CARIBBEAN ROOFTOP PARTY</h3>', puppeteer.MouseButton ='left'),
-    // ]);
-    // await page.click('#panel0 > div > div > div > div > div.SegmentedCarousel-module__trackWrapper___3sLxM.segmented-carousel__track-wrapper > div > div.SegmentedCarousel-module__page___2NbSO.segmented-carousel__page.currentPage > div:nth-child(1) > div > section > div > section > div > a > h3');
-    // await page.locator('.loading').wait();
 //Collect the title for event
     const [el] = await page.$$('#root > div > div > div.eds-structure__body > div > div > div > div.eds-fixed-bottom-bar-layout__content > div > main > div.event-listing.event-listing--has-image > div.event-details.event-details--has-hero-section > div.event-details__wrapper > div.Layout-module__layout___1vM08 > div.Layout-module__module___2eUcs.Layout-module__mainContent___1b1nj > div.Layout-module__module___2eUcs.Layout-module__title___2YUKj > div > h1');
     const txt = await el.getProperty('textContent');
