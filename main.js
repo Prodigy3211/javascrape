@@ -11,6 +11,17 @@ async function scrapeProduct(url){
     });
     const page = await browser.newPage();
     await page.goto(url, {waitUntil: 'networkidle0'});
+
+    const eventData = await page.evaluate((url) => {
+        const eventCard  = Array.from(document.querySelectorAll('.Container_root__4i85v NestedActionContainer_root__1jtfr event-card event-card__vertical vertical-event-card__action-visibility'))
+        const data = eventCard.map((event: any) => ({
+            title: event.querySelector('h3').innerText,
+            image: url + event.querySelector('img').getAttribute('src'),
+
+        }))
+    })
+
+
 //Collect the title for event
     const [el] = await page.$$('#root > div > div > div.eds-structure__body > div > div > div > div.eds-fixed-bottom-bar-layout__content > div > main > div.event-listing.event-listing--has-image > div.event-details.event-details--has-hero-section > div.event-details__wrapper > div.Layout-module__layout___1vM08 > div.Layout-module__module___2eUcs.Layout-module__mainContent___1b1nj > div.Layout-module__module___2eUcs.Layout-module__title___2YUKj > div > h1');
     const txt = await el.getProperty('textContent');
