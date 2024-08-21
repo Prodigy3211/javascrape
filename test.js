@@ -1,15 +1,15 @@
 const puppeteer = require('puppeteer');
 
 async function scraperTest(url) {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({headless:false});
     const page = await browser.newPage();
     await page.goto(url);
     
     const [eventData] = await page.$$('#panel0 > div > div > div > div');
-    console.log(eventData);
     const txt = await eventData.getProperty('textContent');
     const  title = await txt.jsonValue(); 
-    console.log(title);
+    const jsonTitle = await JSON.stringify(title);
+    console.log(jsonTitle);
     browser.close();
     }
 

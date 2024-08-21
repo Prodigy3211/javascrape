@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Prodigy3211/javascrape#readme",
   "dependencies": {
+    "express": "^4.19.2",
     "puppeteer": "^23.1.0"
   }
 }
