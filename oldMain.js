@@ -1,3 +1,12 @@
+const puppeteer = require('puppeteer');
+const fs = require ('fs');
+
+async function scraper(url) {
+   const browser = await puppeteer.launch({headless:false});
+   const page = await browser.newPage();
+   await page.goto(url, {waitUntil: 'networkidle0'})
+
+
 //Collect the title for event
 const [el] = await page.$$('#root > div > div > div.eds-structure__body > div > div > div > div.eds-fixed-bottom-bar-layout__content > div > main > div.event-listing.event-listing--has-image > div.event-details.event-details--has-hero-section > div.event-details__wrapper > div.Layout-module__layout___1vM08 > div.Layout-module__module___2eUcs.Layout-module__mainContent___1b1nj > div.Layout-module__module___2eUcs.Layout-module__title___2YUKj > div > h1');
 const txt = await el.getProperty('textContent');
@@ -18,3 +27,7 @@ const txt3 = await el4.getProperty('textContent');
 const dateTime = await txt3.jsonValue();
 
 console.log(title, venue, dateTime, imageURL);
+
+}
+
+scraper('https://www.eventbrite.com')
