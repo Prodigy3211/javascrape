@@ -1,0 +1,2 @@
+curl -X GET   https://www.eventbriteapi.com/v3/organizations/{organization_id}/events/?time_filter=current_future   -H 'Authorization: Bearer YOUR AUTH KEY HERE' 
+

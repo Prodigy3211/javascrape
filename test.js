@@ -11,6 +11,7 @@ async function scraperTest(url) {
     const  title = await txt.jsonValue(); 
     const jsonTitle = JSON.stringify(title);
     await fs.writeFile("title.json",jsonTitle);
+    const[screenshoter] = await page.screenshot('PNG');
 
     console.log(jsonTitle);
     browser.close();

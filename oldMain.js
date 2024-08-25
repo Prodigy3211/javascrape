@@ -6,7 +6,12 @@ async function scraper(url) {
    const page = await browser.newPage();
    await page.goto(url, {waitUntil: 'networkidle0'})
 
-
+   const [eventCard] = await page.$('#browse-section > section:nth-child(5) > div > div > div > div.simple-carousel-parent > div > div.simple-carousel__container > div > div:nth-child(1) > div > section > div > section')
+ for (eventInfo of eventCard){
+    const txtCard = await eventCard.getProperty('textContent')
+    const eventInfo = await txtCard.jsonValue()
+    console.log(eventInfo);
+ }
 //Collect the title for event
 const [el] = await page.$$('#root > div > div > div.eds-structure__body > div > div > div > div.eds-fixed-bottom-bar-layout__content > div > main > div.event-listing.event-listing--has-image > div.event-details.event-details--has-hero-section > div.event-details__wrapper > div.Layout-module__layout___1vM08 > div.Layout-module__module___2eUcs.Layout-module__mainContent___1b1nj > div.Layout-module__module___2eUcs.Layout-module__title___2YUKj > div > h1');
 const txt = await el.getProperty('textContent');
